@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.flex-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-box {
+    height: 550px;
+}
+
+.content-box {
+    text-align: center;
+    width: 300px;
+}
