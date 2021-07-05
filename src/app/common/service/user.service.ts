@@ -1,20 +1,21 @@
 import { environment } from './../../../environments/environment';
+import { User } from './../model/user';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 import { Response } from '../response/response';
+import 'rxjs/add/operator/map';
 
 @Injectable()
-export class LoginService {
+export class UserService {
 
-  url: string = `${environment.api}/auth`;
-  
+  private url: string = `${environment.api}/user`;
+
   constructor(private http: Http) { }
 
-  public signIn(login: any): Observable<Response> {
-    return this.http.post(this.url, login)
+  public save(user: User): Observable<Response> {
+    return this.http.post(`${this.url}`, user)
     .map(response => response.json());
   }
+
 }

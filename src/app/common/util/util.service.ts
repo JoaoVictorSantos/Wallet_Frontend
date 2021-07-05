@@ -50,6 +50,12 @@ export class UtilService {
       type: 'error',
       confirmButtonColor: '#d33',
       confirmButtonText: 'Ok'
-    }).then(callback)
-}
+    })
+    .then(callback);
+  }
+
+  public messageSuccess(text: string = "Sucesso", callback: Function = null){
+    swal('Sucesso', text, 'success')
+    .then(callback);
+  }
 }

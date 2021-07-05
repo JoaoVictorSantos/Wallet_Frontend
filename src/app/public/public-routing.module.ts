@@ -7,6 +7,7 @@ const routes: Routes = [
     path: '', component: PublicComponent,
     children: [
       { path: 'login', loadChildren: './login/login.module#LoginModule' },
+      { path: 'user', loadChildren: './external-user/external-user.module#ExternalUserModule' },
       { path: '**', redirectTo: 'login', pathMatch: 'full' }
     ]
   }

@@ -15,9 +15,12 @@ export class LoginFormComponent implements OnInit {
 
   constructor(private loginService: LoginService,
               private formBuilder: FormBuilder,
-              private utilService: UtilService) { }
+              public utilService: UtilService) { }
 
   ngOnInit() {
+    if(this.utilService.isLoggedIn()){
+      this.utilService.logout();
+    }
     this.initForm();
   }
 
