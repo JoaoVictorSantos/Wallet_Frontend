@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: "auth", loadChildren: "./public/public.module#PublicModule"},
-  {path: "app", loadChildren: "./private/private.module#PrivateModule"},
-  {path: "**", redirectTo: "auth", pathMatch: "full"}
+  {path: 'auth', loadChildren: './public/public.module#PublicModule'},
+  {path: 'app', loadChildren: './private/private.module#PrivateModule'},
+  {path: '**', redirectTo: 'auth', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -12,4 +12,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

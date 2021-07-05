@@ -11,8 +11,8 @@
         <input type="text" id="email" class="form-control" placeholder="E-mail"
         formControlName="email" aria-describedby="basic-addon1">
         <div *ngIf="form.controls['email'].errors && form.controls['email'].touched">
-          <span *ngIf="form.controls['email'].errors.required">Campo obrigatório.</span>
-          <span *ngIf="form.controls['email'].errors.pattern">Formato de Email inválido.</span>
+          <span class="has-error" *ngIf="form.controls['email'].errors.required">Campo obrigatório.</span>
+          <span class="has-error" *ngIf="form.controls['email'].errors.pattern">Formato de Email inválido.</span>
         </div>
       </div>
   
@@ -21,13 +21,14 @@
         <input type="password" id="password" class="form-control" placeholder="Senha"
         formControlName="password" aria-describedby="basic-addon1">
         <div *ngIf="form.controls['password'].errors && form.controls['password'].touched">
-          <span *ngIf="form.controls['password'].errors.required">Campo obrigatório.</span>
-          <span *ngIf="form.controls['password'].errors.minlength">A Senha deve conter pelo meno 6 caracteres.</span>
+          <span class="has-error" *ngIf="form.controls['password'].errors.required">Campo obrigatório.</span>
+          <span  class="has-error" *ngIf="form.controls['password'].errors.minlength">A Senha deve conter pelo meno 6 caracteres.</span>
         </div>
       </div>
   
       <div class="content-box">
         <button type="submit" class="btn btn-success">Entrar</button>
+        <button type="button" class="btn btn-primary mt-2" (click)="utilService.goTo('/auth/user')">Criar conta</button>
       </div>
   
     </form>
