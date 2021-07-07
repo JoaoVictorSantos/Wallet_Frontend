@@ -1,7 +1,8 @@
-import{ CURRENT_USER } from './constants.util';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+
+import{ CURRENT_USER } from './constants.util';
 
 declare var swal: any;
 
@@ -15,12 +16,12 @@ export class UtilService {
   }
 
   public isLoggedIn(): boolean {
-    var currentUser = JSON.parse(localStorage.getItem(CURRENT_USER));
+    let currentUser = JSON.parse(localStorage.getItem(CURRENT_USER));
     return !currentUser || !currentUser.token ? false : true;
   }
 
   public getToken(): string {
-    var currentUser = JSON.parse(localStorage.getItem(CURRENT_USER));
+    let currentUser = JSON.parse(localStorage.getItem(CURRENT_USER));
     if(!currentUser || !currentUser.token) return null;
     return currentUser.token;
   }
@@ -43,7 +44,7 @@ export class UtilService {
     }
   }
 
-  public messageError(text: string = "Error", callback: Function = null) {
+  public messageError(text: string = 'Error', callback: Function = null) {
     swal({
       title: 'Erro',
       text: text,
@@ -54,7 +55,7 @@ export class UtilService {
     .then(callback);
   }
 
-  public messageSuccess(text: string = "Sucesso", callback: Function = null){
+  public messageSuccess(text: string = 'Sucesso', callback: Function = null){
     swal('Sucesso', text, 'success')
     .then(callback);
   }

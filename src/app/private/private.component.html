@@ -1,3 +1,13 @@
 <div>
+  <ul class="nav nav-tabs">
+    <li routerLinkActive="active" role="presentation">
+      <a [routerLink]="['/auth/login']">Logout</a>
+    </li>
+    <li routerLinkActive="active" role="presentation">
+      <a [routerLink]="['/app/wallet']">Carteiras</a>
+    </li>
+  </ul>
+</div>
+<div>
   <router-outlet></router-outlet>
 </div>

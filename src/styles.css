@@ -16,6 +16,10 @@
     width: 300px;
 }
 
+.d-external {
+    padding: 10px;
+}
+
 .d-flex {
     display: flex!important;
 }
@@ -23,6 +27,11 @@
 .justify-content-center {
     -webkit-box-pack: center!important;
     justify-content: center!important;
+}
+
+.justify-content-right {
+    -webkit-box-pack: end !important;
+    justify-content: flex-end !important;
 }
 
 .m-2 {
@@ -37,10 +46,26 @@
     margin-top: 1.25em;
 }
 
+.mb-2 {
+    margin-bottom: .50em;
+}
+
 .has-error {
     color: red;
 }
 
 .text-center {
     text-align: center;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
 }

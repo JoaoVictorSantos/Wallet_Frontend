@@ -1,4 +1,5 @@
-import { CONTENT_TYPE, BERAER } from '../util/constants.util';
+import { AUTHORIZATION } from './../util/constants.util';
+import { CONTENT_TYPE, BEARER } from '../util/constants.util';
 import { Injectable } from '@angular/core';
 import { UtilService } from './../util/util.service';
 import { Http, Request, RequestOptionsArgs, Response, RequestOptions, ConnectionBackend, Headers } from '@angular/http';
@@ -17,26 +18,19 @@ export class HttpInterceptor extends Http {
   }
 
   request(url: Request, options?: RequestOptionsArgs): Observable<Response> {
-    return this.intercept(super.request(url, this.getRequestOptionArgs(options)), url);
-  }
-
-  getRequestOptionArgs(options?: RequestOptionsArgs): RequestOptionsArgs {
     if (options == null) {
       options = new RequestOptions();
     }
-    if (options.headers == null) {
-      options.headers = new Headers();
-    }
 
-    if (!options.headers.get(CONTENT_TYPE)) {
-      options.headers.append(CONTENT_TYPE, 'application/json');
+    if (!url.headers.get(CONTENT_TYPE)) {
+      url.headers.set(CONTENT_TYPE, 'application/json');
     }
 
     if (this.utilService.isLoggedIn() != null) {
-      options.headers.append(BERAER, ` ${this.utilService.getToken()}`);
+      url.headers.set(AUTHORIZATION, `${BEARER} ${this.utilService.getToken()}`);
     }
 
-    return options;
+    return this.intercept(super.request(url, options), url);
   }
 
   intercept(observable: Observable<Response>, request: Request): Observable<Response> {
