@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpInterceptor } from './common/interceptor/http.interceptor';
+import { AuthGuard } from './common/guard/auth-guard';
+import { AuthGuardChild } from './common/guard/auth-guard-child';
 
 export function httpServiceFactory(xhrBackend: XHRBackend,
   requestOptions: RequestOptions, utilService: UtilService) {
@@ -34,8 +36,10 @@ export function httpServiceFactory(xhrBackend: XHRBackend,
     },
     {
       provide: LOCALE_ID,
-      useValue: "pt-BR"
-    }
+      useValue: 'pt-BR'
+    },
+    AuthGuard,
+    AuthGuardChild
   ],
   bootstrap: [AppComponent]
 })

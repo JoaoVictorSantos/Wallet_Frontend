@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import{ CURRENT_USER } from './constants.util';
+import { CURRENT_USER } from './constants.util';
 
 declare var swal: any;
 
@@ -16,12 +16,12 @@ export class UtilService {
   }
 
   public isLoggedIn(): boolean {
-    let currentUser = JSON.parse(localStorage.getItem(CURRENT_USER));
+    const currentUser = JSON.parse(localStorage.getItem(CURRENT_USER));
     return !currentUser || !currentUser.token ? false : true;
   }
 
   public getToken(): string {
-    let currentUser = JSON.parse(localStorage.getItem(CURRENT_USER));
+    const currentUser = JSON.parse(localStorage.getItem(CURRENT_USER));
     if(!currentUser || !currentUser.token) return null;
     return currentUser.token;
   }

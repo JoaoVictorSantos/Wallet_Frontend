@@ -17,8 +17,8 @@ export class WalletService {
     .map(response => response.json());
   }
 
-  public getByFilter(name: string): Observable<Response> {
-    return this.http.get(`${this.url}?name=${name}`)
+  public getByName(name: string = null, page: number = 0): Observable<Response> {
+    return this.http.get(`${this.url}?name=${name}&page=${page}`)
     .map(response => response.json());
   }
 }

@@ -33,7 +33,7 @@ export class WalletListComponent implements OnInit {
   }
 
   private getWallet(): void {
-    this.walletService.getByFilter(this.name)
+    this.walletService.getByName(this.name)
     .subscribe(
       response => {
         if(response && response.data) {

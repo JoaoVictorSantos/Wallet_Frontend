@@ -35,16 +35,16 @@ export class HttpInterceptor extends Http {
 
   intercept(observable: Observable<Response>, request: Request): Observable<Response> {
     return observable.catch((err, source) => {
-      if (err.status == 401) {
-          if(request.url && request.url.indexOf("auth") != -1){
-            this.utilService.messageError("Login ou senha inválido(s).");
+      err = err.json();
+      if (err.status === 401) {
+          if(request.url && request.url.indexOf('auth') !== -1){
+            this.utilService.messageError('Login ou senha inválido(s).');
           }else{
-            this.utilService.messageError(err.message,
-            () => this.utilService.goTo('/auth/login'));
+            this.utilService.messageError(err.message);
+            this.utilService.goTo('/auth/login');
           }
         return Observable.throw(err.json());
       } else {
-        err = err.json();
         if(err){
           if(err.errors){
             this.utilService.messageError(err.errors.join('\n'));
@@ -52,7 +52,7 @@ export class HttpInterceptor extends Http {
             this.utilService.messageError(err.message);
           }
         }else{
-          this.utilService.messageError("Aconteceu algum erro....");
+          this.utilService.messageError('Aconteceu algum erro....');
         }
         return Observable.throw(err);
       }
