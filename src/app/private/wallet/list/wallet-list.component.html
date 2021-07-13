@@ -1,0 +1,48 @@
+<div class="d-external">
+  
+  <div class="card d-external mt-2"> 
+    <div class="mb-2">
+      <h1>Carteiras</h1>
+      <button type="button" class="btn btn-primary"
+      (click)="utilService.goTo('/app/wallet/form');">Cadastrar</button>
+    </div>
+    <div>
+      <form [formGroup]="form" class="form mt-5" 
+      (submit)="onSearch()" autocomplete="off">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name"
+          formControlName="name" [(ngModel)]="name" style="width: 80%;">
+          <div *ngIf="form.controls['name'].errors && form.controls['name'].touched && showErrors">
+            <span class="has-error" *ngIf="form.controls['name'].errors.required">Campo obrigatório.</span>
+          </div>
+        </div>
+  
+        <div class="d-flex justify-content-right">
+          <button type="button" class="btn btn-primary m-2" (click)="onClear();">Limpar</button>
+          <button type="submit" class="btn btn-success m-2">Pesquisar</button>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  
+  <div class="card d-external mt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Número</th>
+          <th>Name</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let wallet of wallets">
+          <th>{{ wallet.id }}</th>
+          <th>{{ wallet?.name }}</th>
+          <th>{{ wallet?.value | currency: 'BRL': true}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

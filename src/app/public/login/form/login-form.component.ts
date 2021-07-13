@@ -52,7 +52,8 @@ export class LoginFormComponent implements OnInit {
       response => {
         if(response && response.data){
           this.utilService.setToken(response.data);
-          this.utilService.goTo("/app");
+          this.utilService.messageSuccess('Bem-vindo')
+          this.utilService.goTo('/app/wallet');
         }
       }
     );

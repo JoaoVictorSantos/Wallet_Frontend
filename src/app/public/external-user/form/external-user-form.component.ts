@@ -56,8 +56,8 @@ export class ExternalUserFormComponent implements OnInit {
     .subscribe(
       response => {
         if(response &&  response.data && response.data.id){
-          this.utilService.messageSuccess("Usuário cadastrado com sucesso!",
-          () => this.utilService.goTo("/auth/login"));
+          this.utilService.messageSuccess('Usuário cadastrado com sucesso!',
+          () => this.utilService.goTo('/auth/login'));
         }
       }
     );
