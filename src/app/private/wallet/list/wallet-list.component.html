@@ -34,6 +34,7 @@
           <th>Número</th>
           <th>Name</th>
           <th>Valor</th>
+          <th>Edição</th>
         </tr>
       </thead>
       <tbody>
@@ -41,6 +42,7 @@
           <th>{{ wallet.id }}</th>
           <th>{{ wallet?.name }}</th>
           <th>{{ wallet?.value | currency: 'BRL': true}}</th>
+          <th><button class="btn btn-primary" (click)="onSaveUserWallet(wallet.id);">Vincular</button></th>
         </tr>
       </tbody>
     </table>

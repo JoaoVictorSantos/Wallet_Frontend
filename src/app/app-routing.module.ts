@@ -10,7 +10,8 @@ const routes: Routes = [
   {
     path: 'app',
     loadChildren: './private/private.module#PrivateModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
   },
   {path: '**', redirectTo: 'auth', pathMatch: 'full'}
 ];

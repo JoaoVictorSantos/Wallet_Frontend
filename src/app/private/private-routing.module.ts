@@ -15,7 +15,8 @@ const routes: Routes = [
       },
       { path: '**', redirectTo: 'wallet', pathMatch: 'full' }
     ],
-    canActivateChild: [AuthGuardChild]
+    canActivateChild: [AuthGuardChild],
+    canLoad: [AuthGuard]
   },
   {
     path: '**',

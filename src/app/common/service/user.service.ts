@@ -18,4 +18,9 @@ export class UserService {
     .map(response => response.json());
   }
 
+  public loggedIn(): Observable<Response> {
+    return this.http.get(`${this.url}/logged-in`)
+    .map(response => response.json());
+  }
+
 }

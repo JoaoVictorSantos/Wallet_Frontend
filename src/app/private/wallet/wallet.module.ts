@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { WalletRoutingModule } from './wallet-routing.module';
 import { WalletListComponent } from './list/wallet-list.component';
 import { WalletFormComponent } from './form/wallet-form.component';
+import { UserWalletService } from 'app/common/service/user-wallet.service';
+import { UserService } from 'app/common/service/user.service';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { WalletFormComponent } from './form/wallet-form.component';
   ],
   providers: [
     WalletService,
-    UtilService
+    UtilService,
+    UserWalletService,
+    UserService
   ]
 })
 export class WalletModule { }

@@ -6,6 +6,7 @@ import { CURRENT_USER } from './constants.util';
 
 declare var swal: any;
 
+
 @Injectable()
 export class UtilService {
 
@@ -44,7 +45,7 @@ export class UtilService {
     }
   }
 
-  public messageError(text: string = 'Error', callback: Function = null) {
+  public messageError(text: string = 'Error', callback: Function = null): void {
     swal({
       title: 'Erro',
       text: text,
@@ -55,8 +56,23 @@ export class UtilService {
     .then(callback);
   }
 
-  public messageSuccess(text: string = 'Sucesso', callback: Function = null){
+  public messageSuccess(text: string = 'Sucesso', callback: Function = null): void {
     swal('Sucesso', text, 'success')
+    .then(callback);
+  }
+
+  public messageConfirmation(text: string = 'Confirmação',
+  callback: Function = null): void {
+    swal({
+      title: 'Confirmação',
+      text: text,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Ok',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Voltar'
+    })
     .then(callback);
   }
 }
